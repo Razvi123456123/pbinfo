@@ -1,0 +1,18 @@
+void Reord(nod *&head) {
+  if (head == NULL) {
+    return;
+  }
+  nod *p = head;
+  nod *q = head->urm;
+  while (q != NULL) {
+    if (q->info < p->info) {
+      p->urm = q->urm;
+      q->urm = head;
+      head = q;
+      q = p->urm;
+    } else {
+      p = q;
+      q = q->urm;
+    }
+  }
+}
